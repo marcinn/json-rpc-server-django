@@ -1,0 +1,23 @@
+== {{ service.name }} ==
+
+  * Service URL: {{ service.url }}
+
+{% if service.description %}
+{{{#!html
+{{ service.description|linebreaksbr }}
+}}}
+{% endif %}
+
+{{{#!html
+<table class="wiki">
+    <tr>
+        <th style="width:40%">Method</th>
+        <th>Description</th>
+    </tr>{% for method in service.methods %}
+    <tr>
+        <td><pre>{{ method.invocation }}</pre></td>
+        <td>{{ method.description|linebreaksbr }}</td>
+    </tr>{% endfor %}
+</table>
+}}}
+
