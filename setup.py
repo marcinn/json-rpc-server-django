@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='damn-simple-jsonrpc-server-django',
-      version='0.1.1',
+      version='0.1.2',
       description='Django adapter for damn simple JSON-RPC Server',
       classifiers=[
         "Development Status :: 3 - Alpha",
