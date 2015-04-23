@@ -18,7 +18,9 @@ class Command(BaseCommand):
         make_option('-u', '--url', action='store', default='', dest='api_url',
                     help='API URL prefix'),
         make_option('-f', '--format', action='store', default='html', dest='format',
-                    help='Output format')
+                    help='Output format'),
+        make_option('-t', '--title', action='store', default='API', dest='title',
+                    help='Title of generated document'),
         )
 
     def handle(self, *args, **options):
@@ -34,6 +36,7 @@ class Command(BaseCommand):
                 options['api_url'])
         ctx = {
                 'service': service_meta,
+                'title': options['title'],
                 }
         template_name = 'jsonrpc/introspection.%s' % options['format']
         output = render_template(template_name, ctx)

@@ -1,5 +1,5 @@
 <html>  
-<title>{{ service.name }} | {{ service.url }}</title>
+<title>{{ title }}</title>
 
 <style> 
     body {
@@ -28,8 +28,13 @@
 
 <body>
     
-<h1>{{ service.name }}</h1>
-<h2>{{ service.url }}</h2>
+<h1>{{ title }}</h1>
+<h2>{{ service.name }}</h2>
+
+<ul>
+    <li>Service URL: {{ service.url }}</li>
+</ul>
+
 <p>{{ service.description|linebreaksbr }}</p>
 
 <table class="methods">
