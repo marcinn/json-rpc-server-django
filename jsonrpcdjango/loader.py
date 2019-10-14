@@ -10,9 +10,9 @@ def load_service_instance(path):
     module, attr = path[:i], path[i+1:]
     try:
         mod = import_module(module)
-    except ImportError, e:
+    except ImportError as e:
         raise ImproperlyConfigured('Error importing JSON-RPC service instance %s: "%s"' % (path, e))
-    except ValueError, e:
+    except ValueError as e:
         raise ImproperlyConfigured('Error importing JSON-RPC instance: %s' % e)
     try:
         obj = getattr(mod, attr)
