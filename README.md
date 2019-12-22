@@ -7,7 +7,7 @@
 # JSON RPC-Server adaptor for Django
 
 This is a Django adaptor for
-(Damn Simple JSON RPC Server)[https://github.com/marcinn/json-rpc-server/]
+[Damn Simple JSON RPC Server](https://github.com/marcinn/json-rpc-server/)
 
 ## Compatibility
 
