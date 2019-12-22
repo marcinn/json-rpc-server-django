@@ -1,0 +1,2 @@
+Django >= 1.11
+damn-simple-json-rpc-server >= 0.4.4, < 2.0

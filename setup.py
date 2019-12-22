@@ -1,4 +1,13 @@
+import os
 from setuptools import setup, find_packages
+
+
+with open(
+    os.path.join(os.path.dirname(__file__), 'README.md'),
+    encoding='utf-8'
+) as fh:
+    long_description = fh.read()
+
 
 setup(
     name='damn-simple-jsonrpc-server-django',
@@ -29,6 +38,8 @@ setup(
     keywords='web json rpc python server django',
     packages=find_packages('.'),
     install_requires=['damn-simple-jsonrpc-server>=0.4.4'],
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     package_data={
         'jsonrpcdjango': ['templates/*/*'],
     },
