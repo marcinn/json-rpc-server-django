@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "damn-simple-jsonrpc-server-django"
+version = "0.5"
+description = "Django adapter for damn simple JSON-RPC Server"
+readme = "README.md"
+authors = [{ name = "Marcin Nowak", email = "marcin.j.nowak@gmail.com" }]
+license = { text = "BSD License" }
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 1.11",
+    "Framework :: Django :: 2.0",
+    "Framework :: Django :: 2.1",
+    "Framework :: Django :: 2.2",
+    "Framework :: Django :: 3.0",
+    "Framework :: Django :: 3.1",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Framework :: Django :: 5.2",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["web", "json", "rpc", "python", "server", "django"]
+dependencies = [
+    "damn-simple-jsonrpc-server>=0.5.0",
+    "Django >= 1.11, < 6",
+]
+
+[project.urls]
+Homepage = "https://github.com/marcinn/json-rpc-server-django"
+
+[project.optional-dependencies]
+dev = [
+    "ipython",
+    "ipdb",
+    "pytest",
+]
+
+[tool.setuptools]
+packages = ["jsonrpcdjango"]
+package-data = { "jsonrpcdjango" = ["templates/*/*"] }
+zip-safe = false

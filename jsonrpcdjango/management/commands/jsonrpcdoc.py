@@ -14,25 +14,22 @@ def render_template(template, meta):
 
 
 class Command(BaseCommand):
-    option_list = BaseCommand.option_list + (
-        make_option('-u', '--url', action='store', default='', dest='api_url',
-                    help='API URL prefix'),
-        make_option('-f', '--format', action='store', default='html', dest='format',
-                    help='Output format'),
-        make_option('-t', '--title', action='store', default='API', dest='title',
-                    help='Title of generated document'),
-        )
+    def add_arguments(self, parser):
+        parser.add_argument('service_path', nargs=1, type=str)
+        parser.add_argument('-u', '--url', action='store', default='', dest='api_url',
+                    help='API URL prefix')
+        parser.add_argument('-f', '--format', action='store', default='html', dest='format',
+                    help='Output format')
+        parser.add_argument('-t', '--title', action='store', default='API', dest='title',
+                    help='Title of generated document')
 
     def handle(self, *args, **options):
-        if len(args)<1:
-            raise CommandError('Required service instance path')
-        if len(args)>1:
-            raise CommandError('Required only one service instance path')
+        service_path = options['service_path'][0]
 
         from jsonrpcdjango.loader import load_service_instance
         from jsonrpcserver.introspection import introspect
 
-        service_meta = introspect(load_service_instance(args[0]), 
+        service_meta = introspect(load_service_instance(service_path), 
                 options['api_url'])
         ctx = {
                 'service': service_meta,
