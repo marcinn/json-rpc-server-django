@@ -4,17 +4,21 @@
 env:
 	python -m venv env
 
+
+clean:
+	rm -rf dist/ .eggs/ *.egg-info/
+
+
 install: env
-	source env/bin/activate && pip install -U pip
-	source env/bin/activate && pip install .[dev]
-
-package:
-	@rm -rf dist/
-	@mkdir dist
-	@source env/bin/activate && python -m build
+	./env/bin/pip install pip
+	./env/bin/pip install -e .[dev]
 
 
-upload: package
-	source env/bin/activate && twine upload dist/*
+package: clean install
+	./env/bin/python -m build
+
+
+upload: clean package
+	./env/bin/twine upload dist/*
 
 
